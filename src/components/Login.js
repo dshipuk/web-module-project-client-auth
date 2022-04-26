@@ -19,7 +19,8 @@ const Login = () => {
 
         axios.post("http://localhost:9000/api/login", cred)
             .then(resp => {
-                localStorage.setItem("token", resp.payload)
+                console.log(resp)
+                localStorage.setItem("token", resp.data.token)
                 push("/friends")
             })
             .catch(err => {
